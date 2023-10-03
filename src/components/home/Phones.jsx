@@ -13,8 +13,11 @@ const Phones = (props) => {
 
     useEffect(()=>{
         setSearchText(searchIp)
+        
     },[searchIp])
+
     useEffect(() => {
+        console.log(searchText)
         fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
             .then(res => res.json())
             .then(data => setPhones(data.data))

@@ -8,6 +8,8 @@ import Home from './components/home/Home.jsx'
 import Cart from './components/cart/Cart.jsx'
 import PhoneDetails from './components/Details/PhoneDetails.jsx'
 import OrderedProducts from './components/cart/OrderedProducts.jsx'
+import Search from './components/Search/Search.jsx'
+import Banner from './components/home/Banner.jsx'
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,17 @@ const router = createBrowserRouter([
     children: [
       {
         path:'/',
-        element: <Home/>
+        element: <Home/>,
+        children:[
+          {
+            path:'/',
+            element:<Banner/>
+          },
+          {
+            path: '/search',
+            element:<Search/>
+          }
+        ]
       },
       {
         path:'/cart',
@@ -29,7 +41,8 @@ const router = createBrowserRouter([
       {
         path: '/phone-details/:id',
         element: <PhoneDetails/>
-      }
+      },
+      
     ]
   }
 ])
