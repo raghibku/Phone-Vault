@@ -6,9 +6,23 @@ const getStoredCart = () => {
     return [];
 }
 
+const getStoredOrder = () => {
+    const storedOrderString = localStorage.getItem('order');
+    if(storedOrderString){
+        return JSON.parse(storedOrderString);
+    }
+    return [];
+}
+
 const saveCartToLS = cart => {
     const cartStringified = JSON.stringify(cart);
     localStorage.setItem('cart',cartStringified);
+}
+
+const saveOrderToLS = order => {
+    const orderStringified = JSON.stringify(order);
+    console.log(orderStringified)
+    localStorage.setItem('order',orderStringified);
 }
 
 const addToLS = id => {
@@ -17,6 +31,18 @@ const addToLS = id => {
     saveCartToLS(cart);
 }
 
+const addOrderToLS = () => {
+    const prevOrder= getStoredOrder();
+    const cart = getStoredCart();
+    const order =[...prevOrder,...cart];
+    
+    console.log(cart);
+    console.log(order);
+    
+    saveOrderToLS(order);
+}
+
+
 const removeFromLS = id => {
     const cart = getStoredCart();
     const remaining = cart.filter((idx => idx.slug !== id.slug));
@@ -24,22 +50,4 @@ const removeFromLS = id => {
 }
 
 
-const getTotalAmount = () => {
-    const storedAmount = localStorage.getItem('amount');
-    if(storedAmount){
-        return JSON.parse(storedAmount);
-    }
-    return null;
-}
-const saveAmountToLS = amount => {
-    const amountStringified = JSON.stringify(amount);
-    localStorage.setItem('amount',amountStringified);
-}
-const addAmountToLS = price => {
-    const amount = price;
-    saveAmountToLS(amount);
-}
-
-
-
-export { addToLS , getStoredCart ,removeFromLS,getTotalAmount,addAmountToLS }
+export { addToLS , getStoredCart ,removeFromLS, getStoredOrder, addOrderToLS }

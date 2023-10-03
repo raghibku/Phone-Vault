@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import { getStoredCart, removeFromLS } from "../utilities/localStorage";
+import { addOrderToLS, getStoredCart, removeFromLS } from "../utilities/localStorage";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Cart = () => {
-  const [phoneIds, setPhoneIds] = useState(null);
+  
   const [selectedPhones, setSelectedPhones] = useState(null);
   const [del, setDel] = useState(null);
 
@@ -25,6 +25,7 @@ const Cart = () => {
 
   const handlePurchase = () => {
     my_modal_1.showModal();
+    addOrderToLS();
     localStorage.removeItem("cart")
     setDel('all');
   }
