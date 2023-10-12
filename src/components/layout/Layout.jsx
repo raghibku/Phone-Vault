@@ -9,7 +9,6 @@ const Layout = () => {
         <div className="flex flex-grow py-4">
             <Outlet/>
         </div>
-        
         <Footer/>
     </div>
   )

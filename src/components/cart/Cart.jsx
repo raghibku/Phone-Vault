@@ -2,11 +2,22 @@ import { useEffect, useState } from "react"
 import { addOrderToLS, getStoredCart, removeFromLS } from "../utilities/localStorage";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   
   const [selectedPhones, setSelectedPhones] = useState(null);
   const [del, setDel] = useState(null);
+  const navigate = useNavigate();
+  const [isDisabled, setIsDisabled] = useState(true);
+
+  useEffect(()=>{
+    if(selectedPhones&&(selectedPhones.length>0)){
+      setIsDisabled(false);
+    }else{
+      setIsDisabled(true);
+    }
+  },[selectedPhones])
 
   useEffect(() => {
     const savedIds = getStoredCart();
@@ -44,7 +55,7 @@ const Cart = () => {
                   <h2 className="card-title">{phone.phone_name}</h2>
                   <p className="text-xl font-semibold">Price: 999$ </p>
                   <div className=" card-actions justify-start md:justify-between">
-                    <button className="btn btn-primary">Details</button>
+                    <button onClick={() => { navigate(`/phone-details/${phone.slug}`) }} className="btn btn-primary">Details</button>
                     <button onClick={() => handleRemoveFromCart(phone)} className="btn btn-secondary">Remove</button>
 
                   </div>
@@ -70,7 +81,7 @@ const Cart = () => {
         </ol>
         <h1 className="text-2xl font-semibold my-4">Total Amount: {selectedPhones ? selectedPhones.length * 999 : 0}$</h1>
         <div className="w-full">
-          <button onClick={handlePurchase} className="w-full my-4 text-xl btn btn-secondary">Purchase</button>
+          <button disabled={isDisabled} onClick={handlePurchase} className="w-full my-4 text-xl btn btn-secondary">Purchase</button>
         </div>
         <dialog id="my_modal_1" className="modal">
           <form method="dialog" className="modal-box flex flex-col items-center justify-center">
@@ -78,7 +89,7 @@ const Cart = () => {
               <h3 className="font-bold text-lg">Congratulations</h3>
               <p className="py-4">Your purchase is complete</p>
               <div className="modal-action">
-                <button className="btn bg-pink-500 text-white" >Go Home</button>
+                <button  onClick={() => { navigate(`/`) }} className="btn bg-pink-500 text-white" >Go Home</button>
               </div>
           </form>
         </dialog>
