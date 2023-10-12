@@ -1,8 +1,8 @@
 # Phone Vault
 
-![Phone Vault Logo]('./public/logo/icons8-smartphone-96.png') <!-- Add your logo or relevant image here -->
+ <!-- Add your logo or relevant image here -->
 
-A responsive web application for exploring and purchasing mobile phones. This project was built using React, React Router, and Tailwind CSS.
+The "Phone Vault" website serves as an online platform for exploring and purchasing mobile phones. It offers features like browsing a catalog of phones, searching for specific models, viewing detailed descriptions, adding items to a shopping cart, completing purchases, and reviewing order history. The site ensures a seamless experience on various devices. This project was built using React, React Router, and Tailwind CSS.
 
 ## Features
 
@@ -18,10 +18,6 @@ A responsive web application for exploring and purchasing mobile phones. This pr
 
 Check out the live demo of Phone Vault [here](https://fluffy-kleicha-1ebc7a.netlify.app/).
 
-## Screenshots
-
-![Phone Vault Screenshot 1]('./public/phone-vault.png')
-![Phone Vault Screenshot 2]('./public/phone-vault-mb.png')
 
 ## Installation
 
