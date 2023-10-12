@@ -1,6 +1,6 @@
 # Phone Vault
 
-![Phone Vault Logo]('logo/icons8-smartphone-96.png') <!-- Add your logo or relevant image here -->
+![Phone Vault Logo]('./public/logo/icons8-smartphone-96.png') <!-- Add your logo or relevant image here -->
 
 A responsive web application for exploring and purchasing mobile phones. This project was built using React, React Router, and Tailwind CSS.
 
@@ -20,8 +20,8 @@ Check out the live demo of Phone Vault [here](https://fluffy-kleicha-1ebc7a.netl
 
 ## Screenshots
 
-![Phone Vault Screenshot 1]('phone-vault.png')
-![Phone Vault Screenshot 2]('phone-vault-mb.png')
+![Phone Vault Screenshot 1]('./public/phone-vault.png')
+![Phone Vault Screenshot 2]('./public/phone-vault-mb.png')
 
 ## Installation
 
