@@ -47,6 +47,6 @@ To run this project locally, follow these steps:
 ## Contact
 
 - Author: Raghib Shahriar
-- GitHub: [Your GitHub Profile](https://github.com/raghibku)
+- GitHub: [raghibku](https://github.com/raghibku)
 
 
